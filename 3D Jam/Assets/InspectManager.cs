@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InspectManager : MonoBehaviour
 {
@@ -10,11 +11,19 @@ public class InspectManager : MonoBehaviour
     public GameObject inspectHud;
     public GameObject target;
 
-    public GameObject inspected;
+    public Text inspectName;
+    public Text inspectDesc;
+
+    private GameObject inspected;
+
+    public GameObject[] toDesactivate;
+
+    public bool inspectCooldown;
 
 
     void Start()
     {
+        inspectCooldown = false;
         player = this.gameObject;
     }
 
@@ -27,31 +36,62 @@ public class InspectManager : MonoBehaviour
     void Inspect()
     {
 
-        if(player.GetComponent<Inventory>().inHand != null && player.GetComponent<PlayerController>().isInspecting == false)
+        if (player.GetComponent<Inventory>().inHand != null && player.GetComponent<PlayerController>().isInspecting == false && !inspectCooldown)
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
+                StartCoroutine(InspectCooldown());
+
                 player.GetComponent<PlayerController>().isInspecting = true;
                 Debug.Log("Inspecting now...");
 
-                inspectHud.SetActive(true);
 
                 player.GetComponent<Inventory>().inHand.GetComponent<Rotation>().enabled = true;
 
-                inspected = Instantiate(player.GetComponent<Inventory>().inHand.gameObject, target.transform.position, Quaternion.identity);
+                inspected = Instantiate(player.GetComponent<Inventory>().inHand.gameObject, target.transform.parent);
                 inspected.transform.position = target.transform.position;
                 inspected.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
+                for (int i = 0; i < toDesactivate.Length; i++)
+                {
+                    toDesactivate[i].SetActive(false);
+                }
+
+                if(inspected.GetComponent<ItemDes>().itemName != null && inspected.GetComponent<ItemDes>().itemDesc != null)
+                {
+                inspectName.text = inspected.GetComponent<ItemDes>().itemName;
+                inspectDesc.text = inspected.GetComponent<ItemDes>().itemDesc;
+                }
+
+                inspectHud.SetActive(true);
             }
         }
 
-        if(player.GetComponent<PlayerController>().isInspecting == true)
+        if (player.GetComponent<PlayerController>().isInspecting == true && !inspectCooldown)
         {
-            if (Input.GetKeyDown(KeyCode.Y))
+            if (Input.GetKeyDown(KeyCode.T))
             {
                 player.GetComponent<PlayerController>().isInspecting = false;
                 Debug.Log("No longer inspecting");
+
+
+                player.GetComponent<Inventory>().inHand.GetComponent<Rotation>().enabled = true;
+
+                for (int i = 0; i < toDesactivate.Length; i++)
+                {
+                    toDesactivate[i].SetActive(true);
+                }
+
+                inspectHud.SetActive(false);
+                Destroy(inspected);
             }
         }
+    }
+    public IEnumerator InspectCooldown()
+    {
+        inspectCooldown = true;
+        yield return new WaitForSeconds(0.5f);
+        inspectCooldown = false;
     }
 
 }

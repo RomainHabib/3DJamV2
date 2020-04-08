@@ -30,8 +30,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!isInspecting)
+        {
         Move();
         Crouch();
+        }
     }
 
     void Move()
