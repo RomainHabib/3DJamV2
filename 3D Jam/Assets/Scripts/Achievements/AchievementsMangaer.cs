@@ -8,8 +8,11 @@ public class AchievementsMangaer : MonoBehaviour
     [Header("Achievements")]
     public List<Achievements> achievements;
 
+    [Header("Settings")]
+    public float achievementTime;
+
     [Header("GameObjects")]
-    public GameObject parent;
+    public Animator parent;
     public Image image;
     public Text text;
 
@@ -18,15 +21,18 @@ public class AchievementsMangaer : MonoBehaviour
         ShowAchievement(achievements[0]);
     }
 
-    void Update()
-    {
-        
-    }
-
     public void ShowAchievement(Achievements achievement)
     {
         text.text = achievement.title;
         image.sprite = achievement.image;
-        parent.SetActive(true);
+        parent.SetBool("Popin", true);
+        StartCoroutine("AchievementPopout");
+    }
+
+    IEnumerator AchievementPopout()
+    {
+        yield return new WaitForSeconds(achievementTime);
+        Debug.Log("Debug");
+        parent.SetBool("Popin", false);
     }
 }
