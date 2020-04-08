@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InspectorManager : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 100f;
     bool dragging = false;
     Rigidbody rb;
 
-    public GameObject targetObject;
+    public GameObject player;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckInput();       
+        CheckInput();
     }
 
     private void FixedUpdate()
     {
+        if(player.GetComponent<PlayerController>().isInspecting == true)
+        {
         Rotate();
+        }
     }
 
     void Rotate()
@@ -42,22 +46,11 @@ public class InspectorManager : MonoBehaviour
 
     void CheckInput()
     {
-            if (Input.GetMouseButtonUp(0))
-            {
-                dragging = false;
-            }
+        if (Input.GetMouseButtonUp(0))
+        {
+            dragging = false;
+        }
     }
-
-    //void ChangeObject()
-    //{
-    //    if(targetObject != null)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.T))
-    //        {
-    //            this.gameObject = targetObject.gameObject;
-    //        }
-    //    }
-    //}
 
     private void OnMouseDrag()
     {

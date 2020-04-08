@@ -17,7 +17,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Image inventoryTab;
     [SerializeField] private Text inventoryName;
 
-
     // Start is called before the first frame update
     void Start()
     {

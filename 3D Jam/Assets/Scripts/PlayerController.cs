@@ -21,8 +21,11 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded;
 
+    public bool isInspecting;
+
     void Start()
     {
+        isInspecting = false;
     }
 
     void Update()
