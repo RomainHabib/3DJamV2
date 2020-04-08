@@ -25,7 +25,7 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         //--- Pour lock le curseur dans l'écran ---//
-        if (lockMouse)
+        if (lockMouse && !playerBody.GetComponent<PlayerController>().isInspecting)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -36,8 +36,11 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playerBody.GetComponent<PlayerController>().isInspecting)
+        {
         Look();
         LineVision();   
+        }
     }
 
     void Look()
