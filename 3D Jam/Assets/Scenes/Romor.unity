@@ -633,7 +633,7 @@ MonoBehaviour:
   size: {x: 0, y: 0, z: 0}
   normalMaterial: {fileID: 2100000, guid: 7f6b86a3e00d6c244a20da59f7ddec76, type: 2}
   selectMaterial: {fileID: 2100000, guid: 79330b5b714ed0d40aedf2b09ac7501b, type: 2}
-  inventoryPreview: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  inventoryPreview: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &644655732
 GameObject:
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   size: {x: 0, y: 0, z: 0}
   normalMaterial: {fileID: 2100000, guid: 2dee1c621f3295f4f8a6bef43afa9196, type: 2}
   selectMaterial: {fileID: 2100000, guid: 79330b5b714ed0d40aedf2b09ac7501b, type: 2}
-  inventoryPreview: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  inventoryPreview: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &917731341
 GameObject:
@@ -2013,7 +2013,7 @@ MonoBehaviour:
   size: {x: 0, y: 0, z: 0}
   normalMaterial: {fileID: 2100000, guid: 2dee1c621f3295f4f8a6bef43afa9196, type: 2}
   selectMaterial: {fileID: 2100000, guid: 79330b5b714ed0d40aedf2b09ac7501b, type: 2}
-  inventoryPreview: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  inventoryPreview: {fileID: 0}
   player: {fileID: 0}
 --- !u!54 &1162730671
 Rigidbody:
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 1325570129}
   lockMouse: 1
-  rayDistance: 2
+  rayDistance: 1.75
   selectableTag: Prop
   interactText: {fileID: 1609646599}
   interactHud: {fileID: 917731341}
@@ -2390,14 +2390,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771c5e6332245d642ab88be113dd6256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1325570130}
+  controller: {fileID: 0}
   speed: 12
-  gravity: -9.81
+  gravity: -19.62
   groundCheck: {fileID: 1672566864}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   jumpHeight: 3
 --- !u!114 &1325570132
 MonoBehaviour:

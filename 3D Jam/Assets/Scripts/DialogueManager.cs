@@ -38,8 +38,8 @@ public class DialogueManager : MonoBehaviour
         foreach (DialogueScriptableObject SO in Resources.LoadAll<DialogueScriptableObject>("Dialogues/")) list.Add(SO);
         dialoguesSO = list.ToArray();
 
-       // textSO = dialoguesSO[0];
-       // DisplayDialogue("Oklm");
+        // textSO = dialoguesSO[0];
+        // DisplayDialogue("Oklm");
     }
 
     void Update()
@@ -63,10 +63,10 @@ public class DialogueManager : MonoBehaviour
             if (ReferenceText.maxVisibleCharacters != 0)
             {
                 timer += Time.deltaTime;
-                if(timer >= TimeBeforeVanish)
+                if (timer >= TimeBeforeVanish)
                 {
                     timer = 0;
-                    if(textSO == null || textSO.nextDialogue == null)
+                    if (textSO == null || textSO.nextDialogue == null)
                     {
                         textSO = null;
                         ReferenceText.maxVisibleCharacters = 0;
@@ -88,12 +88,12 @@ public class DialogueManager : MonoBehaviour
                         }
                     }
 
-                    
+
                 }
             }
         }
 
-        
+
     }
 
     public void DisplayDialogue(string nomDuDialogue) // A appeller à chaque fois qu'on souhaite afficher un nv texte
@@ -122,14 +122,14 @@ public class DialogueManager : MonoBehaviour
             if (dialoguesSO[i].name == name)
                 return dialoguesSO[i];
         }
-        print("Dialogue non trouvé: '" + name+"'" + " -- Mauvais nom dans le code ou dans les assets ?");
+        print("Dialogue non trouvé: '" + name + "'" + " -- Mauvais nom dans le code ou dans les assets ?");
         return null;
     }
 
     void TypeWriteText()
     {
         timer += Time.deltaTime;
-        if(timer >= TimeBetweenLetters)
+        if (timer >= TimeBetweenLetters)
         {
             timer = 0;
             ReferenceText.maxVisibleCharacters += 1;

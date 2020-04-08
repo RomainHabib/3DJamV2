@@ -26,7 +26,7 @@ public class Countdown : MonoBehaviour
         internTime -= 1 * Time.deltaTime;
         countdownText.text = internTime.ToString("0");
 
-        if(internTime <= 0)
+        if (internTime <= 0)
         {
             internTime = 0;
         }
