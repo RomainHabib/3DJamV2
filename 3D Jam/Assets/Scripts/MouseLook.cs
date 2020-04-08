@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     [Header("Vision Prefs")]
     [SerializeField] private float rayDistance;
     [SerializeField] private string selectableTag = "Prop";
+    [SerializeField] private string searchableTag = "Searchable";
     [SerializeField] private RaycastHit lastRay;
 
     [Header("Interact Prefs")]
@@ -74,13 +75,43 @@ public class MouseLook : MonoBehaviour
 
                 Debug.Log("Facing : " + hit.transform.name);
 
-                interactHud.SetActive(true);
-                interactText.text = "Interact : " + hit.transform.name;
+                ShowInteractHUD("Interact : " + hit.transform.name);
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     playerBody.GetComponent<Inventory>().PickUp(selection.gameObject);
                 }
+            } else if (selection.CompareTag(searchableTag))
+            {
+                SearchObjects playerSearch = playerBody.GetComponent<SearchObjects>();
+                Searchable searchObject = selection.gameObject.GetComponentInParent<Searchable>();
+
+
+                if (searchObject.searched == false)
+                {
+                    ShowInteractHUD("Search");
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        playerSearch.Search(searchObject);
+                    }
+                } else if (IsInteractHUDActive())
+                {
+                    HideInteractHUD();
+                }
+
+            } else
+            {
+                if (IsInteractHUDActive())
+                {
+                    HideInteractHUD();
+                }
+            }
+
+            // Si on ne regarde plus l'objet qu'on cherche
+            if (playerBody.GetComponent<SearchObjects>().IsSearching() &&
+                playerBody.GetComponent<SearchObjects>().GetSearchingObject() != selection.gameObject.GetComponentInParent<Searchable>())
+            {
+                playerBody.GetComponent<SearchObjects>().StopSearching();
             }
 
             Debug.DrawLine(ray.origin, hit.point, Color.red);
@@ -90,13 +121,33 @@ public class MouseLook : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * rayDistance, Color.green);
 
+            if (playerBody.GetComponent<SearchObjects>().IsSearching())
+            {
+                playerBody.GetComponent<SearchObjects>().StopSearching();
+            }
+
             if (lastRay.transform != null)
             {
                 lastRay.transform.GetComponent<SelectionFeedback>().isHovered = false;
             }
 
-            interactText.text = "";
-            interactHud.SetActive(false);
+            HideInteractHUD();
         }
+    }
+
+    private void ShowInteractHUD(string text)
+    {
+        interactHud.SetActive(true);
+        interactText.text = text;
+    }
+
+    private void HideInteractHUD()
+    {
+        interactHud.SetActive(false);
+    }
+
+    private bool IsInteractHUDActive()
+    {
+        return interactHud.activeSelf;
     }
 }
