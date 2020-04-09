@@ -9,13 +9,15 @@ public class GardeMovement : MonoBehaviour
     [Space(10)]
     [Range(0.0f, 20.0f)] public float speed;
     [Range(0.0f, 20.0f)] public float turnSpeed;
-    
+
 
     [Header("Autre")]
+    public bool isChecking;
+
     public float chancesOfSkipping;
     public float tpChances;
 
-    public GameObject AWP, BWP;
+    public GameObject AWP, BWP, JAILWP;
     public Transform A, B, JAIL, INSIDE;
     public bool toA;
     private Vector3 pos;
@@ -24,9 +26,14 @@ public class GardeMovement : MonoBehaviour
     public float rayMaxDistance;
     public float leftOff = -35f;
     public float leftOff1 = -17.5f;
+    public float leftOff2 = -8.75f;
+    public float leftOff3 = -26.25f;
+
 
     public float rightOff = 35f;
     public float rightOff1 = 17.5f;
+    public float rightOff2 = 8.75f;
+    public float rightOff3 = 26.25f;
 
 
     private float originalSpeed;
@@ -76,15 +83,32 @@ public class GardeMovement : MonoBehaviour
         AWP.transform.Translate(0, 0, newA);
         BWP.transform.Translate(0, 0, newB);
 
-        if (AWP.transform.position.z > JAIL.position.z) AWP.transform.Translate(0, 0, Random.Range(-15.0f, -5.0f));
-        if (BWP.transform.position.z < JAIL.position.z) AWP.transform.Translate(0, 0, Random.Range(15.0f, 5.0f));
+        newA = Random.Range(-1.5f, 1.5f);
+        newB = Random.Range(-1.5f, 1.5f);
+
+        AWP.transform.Translate(newA, 0, 0);
+        BWP.transform.Translate(newB, 0, 0);
+        JAILWP.transform.Translate(Random.Range(-1.5f, 1.5f), 0,0);
+
+
+        if (AWP.transform.position.z > JAIL.position.z - 8) AWP.transform.Translate(0, 0, Random.Range(-15.0f, -6.0f));
+        if (BWP.transform.position.z < JAIL.position.z + 8) AWP.transform.Translate(0, 0, Random.Range(6.0f, 15.0f));
+
+        if (AWP.transform.position.x > 10) AWP.transform.Translate(Random.Range(-2.5f, -1.5f), 0,0 );
+        if (BWP.transform.position.x > 10) BWP.transform.Translate(Random.Range(-2.5f, -1.5f), 0, 0);
+        if (AWP.transform.position.x < 7) AWP.transform.Translate(Random.Range(1.5f, 3.5f), 0, 0);
+        if (BWP.transform.position.x < 7) BWP.transform.Translate(Random.Range(1.5f, 3.5f), 0, 0);
+
+        if (JAILWP.transform.position.x < 7) JAILWP.transform.Translate(Random.Range(1.5f, 2.5f), 0, 0);
+        if (JAILWP.transform.position.x > 10) JAILWP.transform.Translate(Random.Range(-2.5f, -1.5f), 0, 0);
+
 
         jailOff = Random.Range(0.0f, 1.0f);
         speedCoef = Random.Range(1.0f, 1.5f);
         turnSpeedCoef = Random.Range(2.0f, 8.0f);
         turnSpeedCoef2 = Random.Range(0.5f, 1.0f);
         precision = Random.Range(1.0f, 6.0f);
-        randomWait = Random.Range(4.0f, 8.0f);
+        randomWait = Random.Range(4.0f, 7.0f);
         randomAngleRotate = Random.Range(20.0f, 360.0f);
         minTurnSpeed = Random.Range(0.6f, 1.0f);
         minSpeed = Random.Range(0.2f, 1.0f);
@@ -99,10 +123,12 @@ public class GardeMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, JAIL.position) < 3  && hasChecked == false && skipRng > chancesOfSkipping)
         {
             normalMoving = false;
+            isChecking = true;
         }
         else
         {
             normalMoving = true;
+            isChecking = false;
             timer = 0;
         }
     }
@@ -129,7 +155,7 @@ public class GardeMovement : MonoBehaviour
                 Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, turnSpeed * Time.deltaTime, 0.0f);
                 transform.rotation = Quaternion.LookRotation(newDirection);
 
-                if (Vector3.Distance(transform.position, A.position) < (Vector3.Distance(A.position, B.position) / 10))
+                if (Vector3.Distance(transform.position, A.position) < (Vector3.Distance(A.position, B.position) / 20))
                 {
                     toA = false;
                     hasChecked = false;
@@ -232,42 +258,69 @@ public class GardeMovement : MonoBehaviour
         //--- Pour calculer les angles suivants un offset ---//
         Quaternion spreadAngleLeft = Quaternion.AngleAxis(leftOff, new Vector3(0, 1, 0));
         Quaternion spreadAngleLeft1 = Quaternion.AngleAxis(leftOff1, new Vector3(0, 1, 0));
+        Quaternion spreadAngleLeft2 = Quaternion.AngleAxis(leftOff2, new Vector3(0, 1, 0));
+        Quaternion spreadAngleLeft3 = Quaternion.AngleAxis(leftOff3, new Vector3(0, 1, 0));
+
         Quaternion spreadAngleRight = Quaternion.AngleAxis(rightOff, new Vector3(0, 1, 0));
         Quaternion spreadAngleRight1 = Quaternion.AngleAxis(rightOff1, new Vector3(0, 1, 0));
+        Quaternion spreadAngleRight2 = Quaternion.AngleAxis(rightOff2, new Vector3(0, 1, 0));
+        Quaternion spreadAngleRight3 = Quaternion.AngleAxis(rightOff3, new Vector3(0, 1, 0));
+
 
         Vector3 leftAngle = spreadAngleLeft * defaultAngle;
         Vector3 leftAngle1 = spreadAngleLeft1 * defaultAngle;
+        Vector3 leftAngle2 = spreadAngleLeft2 * defaultAngle;
+        Vector3 leftAngle3 = spreadAngleLeft3 * defaultAngle;
+
 
         Vector3 rightAngle = spreadAngleRight * defaultAngle;
         Vector3 rightAngle1 = spreadAngleRight1 * defaultAngle;
+        Vector3 rightAngle2 = spreadAngleRight2 * defaultAngle;
+        Vector3 rightAngle3= spreadAngleRight3 * defaultAngle;
+
 
 
         Ray ray = new Ray(transform.position, transform.forward);
         Ray leftRay = new Ray(transform.position, leftAngle);
         Ray leftRay1 = new Ray(transform.position, leftAngle1);
+        Ray leftRay2 = new Ray(transform.position, leftAngle2);
+        Ray leftRay3 = new Ray(transform.position, leftAngle3);
+
 
         Ray rightRay = new Ray(transform.position, rightAngle);
         Ray rightRay1 = new Ray(transform.position, rightAngle1);
+        Ray rightRay2 = new Ray(transform.position, rightAngle2);
+        Ray rightRay3 = new Ray(transform.position, rightAngle3);
 
 
+        int layerMask = 1 << 2;
+        layerMask = ~layerMask;
 
         RaycastHit hitInfo;
 
         //--- Conditions semblables à tous les raycast ---//
-        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance) || Physics.Raycast(leftRay, out hitInfo, rayMaxDistance) || Physics.Raycast(rightRay, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay1, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay1, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay2, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay3, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay2, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay3, out hitInfo, rayMaxDistance, layerMask))
         {
+            if (isChecking)
+            {
+
+
+
+            }
         }
         //--- Pour le raycast de face ---//
-        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance, layerMask))
         {
             //--- Si l'objet dans le Ray est un Prop ---//
-            if (hitInfo.transform.CompareTag("Prop"))
+            if (hitInfo.transform.CompareTag("Player"))
             {
-                //hitInfo.transform.GetComponent<Rigidbody>().AddForce(0,0,100);
-                Debug.Log("Facing : " + hitInfo.transform.name);
-            }
-
             Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
+            }
         }
         else
         {
@@ -276,9 +329,18 @@ public class GardeMovement : MonoBehaviour
 
 
         //--- Pour le raycast de gauche ---//
-        if (Physics.Raycast(leftRay, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(leftRay, out hitInfo, rayMaxDistance, layerMask))
         {
-            Debug.DrawLine(leftRay.origin, hitInfo.point, Color.red);
+            //--- Si l'objet dans le Ray est un Prop ---//
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(leftRay.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(leftRay.origin, hitInfo.point, Color.blue);
+            }
         }
         else
         {
@@ -286,19 +348,69 @@ public class GardeMovement : MonoBehaviour
         }
 
         //--- Pour le raycast de gauche 1---//
-        if (Physics.Raycast(leftRay1, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(leftRay1, out hitInfo, rayMaxDistance, layerMask))
         {
-            Debug.DrawLine(leftRay1.origin, hitInfo.point, Color.red);
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(leftRay1.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(leftRay1.origin, hitInfo.point, Color.blue);
+            }
         }
         else
         {
             Debug.DrawLine(leftRay1.origin, leftRay1.origin + leftRay1.direction * rayMaxDistance, Color.green);
         }
 
-        //--- Pour le raycast de droite ---//
-        if (Physics.Raycast(rightRay, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(leftRay2, out hitInfo, rayMaxDistance, layerMask))
         {
-            Debug.DrawLine(rightRay.origin, hitInfo.point, Color.red);
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(leftRay2.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(leftRay2.origin, hitInfo.point, Color.blue);
+            }
+        }
+        else
+        {
+            Debug.DrawLine(leftRay2.origin, leftRay2.origin + leftRay2.direction * rayMaxDistance, Color.green);
+        }
+
+        if (Physics.Raycast(leftRay3, out hitInfo, rayMaxDistance, layerMask))
+        {
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(leftRay3.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(leftRay3.origin, hitInfo.point, Color.blue);
+            }
+        }
+        else
+        {
+            Debug.DrawLine(leftRay3.origin, leftRay3.origin + leftRay3.direction * rayMaxDistance, Color.green);
+        }
+
+        //--- Pour le raycast de droite ---//
+        if (Physics.Raycast(rightRay, out hitInfo, rayMaxDistance, layerMask))
+        {
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(rightRay.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(rightRay.origin, hitInfo.point, Color.blue);
+            }
         }
         else
         {
@@ -306,13 +418,55 @@ public class GardeMovement : MonoBehaviour
         }
 
         //--- Pour le raycast de droite 1---//
-        if (Physics.Raycast(rightRay1, out hitInfo, rayMaxDistance))
+        if (Physics.Raycast(rightRay1, out hitInfo, rayMaxDistance, layerMask))
         {
-            Debug.DrawLine(rightRay1.origin, hitInfo.point, Color.red);
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(rightRay1.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(rightRay1.origin, hitInfo.point, Color.blue);
+            }
         }
         else
         {
             Debug.DrawLine(rightRay1.origin, rightRay1.origin + rightRay1.direction * rayMaxDistance, Color.green);
+        }
+
+        if (Physics.Raycast(rightRay2, out hitInfo, rayMaxDistance, layerMask))
+        {
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(rightRay2.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(rightRay2.origin, hitInfo.point, Color.blue);
+            }
+        }
+        else
+        {
+            Debug.DrawLine(rightRay2.origin, rightRay2.origin + rightRay2.direction * rayMaxDistance, Color.green);
+        }
+
+        if (Physics.Raycast(rightRay3, out hitInfo, rayMaxDistance, layerMask))
+        {
+            if (hitInfo.transform.CompareTag("Player"))
+            {
+                Debug.DrawLine(rightRay3.origin, hitInfo.point, Color.red);
+
+            }
+            else
+            {
+                Debug.DrawLine(rightRay3.origin, hitInfo.point, Color.blue);
+            }
+        }
+        else
+        {
+            Debug.DrawLine(rightRay3.origin, rightRay3.origin + rightRay3.direction * rayMaxDistance, Color.green);
         }
     }
 }
