@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed = 100f;
+    [SerializeField] float rotationSpeed = 15f;
     bool dragging = false;
     Rigidbody rb;
 
@@ -50,11 +50,15 @@ public class Rotation : MonoBehaviour
         {
             dragging = false;
         }
+        if (Input.GetMouseButton(0))
+        {
+            dragging = true;
+        }
     }
 
-    private void OnMouseDrag()
-    {
-        dragging = true;
-    }
+    //private void OnMouseDrag()
+    //{
+    //    dragging = true;
+    //}
 
 }
