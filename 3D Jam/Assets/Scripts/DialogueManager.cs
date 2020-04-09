@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         List<DialogueScriptableObject> list = new List<DialogueScriptableObject>();
         foreach (DialogueScriptableObject SO in Resources.LoadAll<DialogueScriptableObject>("Dialogues/")) list.Add(SO);
         dialoguesSO = list.ToArray();
-
+        ReferenceText.maxVisibleCharacters = 0;
         // textSO = dialoguesSO[0];
         // DisplayDialogue("Oklm");
     }
