@@ -20,7 +20,12 @@ public class Searchable : MonoBehaviour
     public void SpawnItem()
     {
         if (objectToSpawn != null) {
-            Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+            GameObject instantiate = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+
+            if (Inventory.instance.inHand == null)
+            {
+                Inventory.instance.PickUp(instantiate);
+            }
         }
         searched = true;
     }
