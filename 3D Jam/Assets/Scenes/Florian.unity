@@ -285,7 +285,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
-  - {fileID: 11400000, guid: e17f09c1584e0df41b139dd22c9faefc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   achievementTime: 5
   parent: {fileID: 787562903}
   image: {fileID: 829319352}
@@ -2403,7 +2412,7 @@ GameObject:
   - component: {fileID: 1078887767}
   - component: {fileID: 1078887766}
   - component: {fileID: 1078887765}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plate
   m_TagString: Searchable
   m_Icon: {fileID: 0}
@@ -3003,7 +3012,7 @@ GameObject:
   - component: {fileID: 1345855733}
   - component: {fileID: 1345855732}
   - component: {fileID: 1345855731}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4253,7 +4262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104032810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.55, y: 3, z: -0.38}
+  m_LocalPosition: {x: 0.224, y: 0.48, z: 2.786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
