@@ -20,9 +20,6 @@ public class DialogueManager : MonoBehaviour
     private bool nextDialBool;
     private DialogueScriptableObject textSO;
     public DialogueScriptableObject[] dialoguesSO;
-
-
-
     public static DialogueManager Instance { get; protected set; }
     void Start()
     {
@@ -39,7 +36,8 @@ public class DialogueManager : MonoBehaviour
         dialoguesSO = list.ToArray();
         ReferenceText.maxVisibleCharacters = 0;
         // textSO = dialoguesSO[0];
-        // DisplayDialogue("Oklm");
+        DisplayDialogue("Oklm");
+        
     }
 
     void Update()
@@ -83,7 +81,7 @@ public class DialogueManager : MonoBehaviour
                         {
                             print("On affiche le dialogue d'après: " + textSO.nextDialogue.name);
                             DisplayDialogue(textSO.nextDialogue.name);
-                            textSO = null;
+                            //textSO = null;
                             ReferenceText.maxVisibleCharacters = 0;
                         }
                     }
