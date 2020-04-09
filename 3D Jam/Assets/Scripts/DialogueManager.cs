@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
                         {
                             print("On affiche le dialogue d'après: " + textSO.nextDialogue.name);
                             DisplayDialogue(textSO.nextDialogue.name);
-                            textSO = null;
+                            //textSO = null;
                             ReferenceText.maxVisibleCharacters = 0;
                         }
                     }

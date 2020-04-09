@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: "Ahah ! Tu devineras jamais Logan ! Ce truand de Jason aurait apparement
     planqu\xE9 un marteau derri\xE8re une des briques de sa cellule, j'esp\xE8re
-    que Djin s'en rendre pas compte. Si seulement il l'avait utiliser pour se d\xE9fendre... "
-  nextDialogue: {fileID: 0}
+    que Djin s'en rendra pas compte. Si seulement il l'avait utiliser pour se d\xE9fendre... "
+  nextDialogue: {fileID: 11400000, guid: 514ea24285e335f44bb60e307cf626f4, type: 2}

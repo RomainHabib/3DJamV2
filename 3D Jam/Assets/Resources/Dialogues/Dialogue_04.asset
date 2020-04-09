@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: "Le mec qui a but\xE9 Jason, euh... Djin ouai ! Parait qu'il veut \xEAtre
     le plus grand tueur en s\xE9rie de l'histoire et surpasser son p\xE8re."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: 70c90d9dcbc096547839c794b4b5b9e0, type: 2}

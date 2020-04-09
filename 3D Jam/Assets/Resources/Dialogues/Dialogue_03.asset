@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue: "Raaah j'ai plus d'allumettes pour mes clopes ! Connor aurait d\xFB m'en
     renvoyer avec les journeaux mais je crois qu'il s'est gour\xE9 de cellule le
     con !"
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: 8a48fc85b3c25d04796ac2c8454dabfe, type: 2}
