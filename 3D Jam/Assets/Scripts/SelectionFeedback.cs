@@ -10,7 +10,7 @@ public class SelectionFeedback : MonoBehaviour
     public Vector3 size;
 
     [Header("Materials Prefs")]
-    [SerializeField] private Material normalMaterial;
+    public Material normalMaterial;
     [SerializeField] private Material selectMaterial;
     public Sprite inventoryPreview;
 

@@ -64,7 +64,8 @@ public class Inventory : MonoBehaviour
     public void Drop(GameObject toDrop)
     {
         toDrop.transform.parent = GameObject.FindGameObjectWithTag("PropContainer").transform;
-        toDrop.transform.position = new Vector3(playerHand.transform.position.x, 2, playerHand.transform.forward.z - 0.3f);
+        toDrop.transform.position = playerHand.transform.position;
+        toDrop.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     //--- Gère le changement de la main à l'inventaire ---//
