@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
         Move();
         Crouch();
         }
+
+        if (isInspecting)
+        {
+            transform.localScale = new Vector3(1, 1.5f, 1);
+        }
     }
 
     void Move()
@@ -76,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1, 1.5f, 1);
         }
     }
 }

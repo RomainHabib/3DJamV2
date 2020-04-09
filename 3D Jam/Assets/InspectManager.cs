@@ -49,8 +49,15 @@ public class InspectManager : MonoBehaviour
                 player.GetComponent<Inventory>().inHand.GetComponent<Rotation>().enabled = true;
 
                 inspected = Instantiate(player.GetComponent<Inventory>().inHand.gameObject, target.transform.parent);
+
+                if(inspected.GetComponent<ItemDes>().type == ItemDes.PropType.Newpaper)
+                {
+                    inspected.transform.rotation = Quaternion.Euler(-90, 0, 0);
+                }
+
                 inspected.transform.position = target.transform.position;
                 inspected.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
 
                 for (int i = 0; i < toDesactivate.Length; i++)
                 {

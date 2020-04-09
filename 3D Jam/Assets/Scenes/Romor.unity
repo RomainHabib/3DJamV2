@@ -3556,6 +3556,7 @@ MonoBehaviour:
   lockMouse: 1
   rayDistance: 1.75
   selectableTag: Prop
+  searchableTag: Searchable
   interactText: {fileID: 1609646599}
   interactHud: {fileID: 917731341}
 --- !u!1 &1672566863
