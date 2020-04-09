@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b488c9140fc4dab6339a2fedf3e5, type: 3}
+  m_Name: The cake is a lie
+  m_EditorClassIdentifier: 
+  title: The cake is a lie
+  description: "R\xE9cup\xE9rer la lime dans le g\xE2teau"
+  image: {fileID: 21300000, guid: df075e8c5d3cc904fb082a6ac7cffa21, type: 3}
