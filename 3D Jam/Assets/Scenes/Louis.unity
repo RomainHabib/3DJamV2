@@ -340,7 +340,8 @@ MonoBehaviour:
   TimeBeforeVanish: 2
   NextDialWithKey: 0
   ReferenceText: {fileID: 59014746}
-  dialoguesSO: []
+  dialoguesSO:
+  - {fileID: 11400000, guid: 720bc4cecd10b1f4c9f89596eaa49979, type: 2}
 --- !u!4 &293454436
 Transform:
   m_ObjectHideFlags: 0
@@ -513,10 +514,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   turnSpeed: 2
+  isChecking: 0
   chancesOfSkipping: 25
   tpChances: 50
   AWP: {fileID: 517813131}
   BWP: {fileID: 863526005}
+  JAILWP: {fileID: 22733209}
   A: {fileID: 517813132}
   B: {fileID: 863526006}
   JAIL: {fileID: 22733210}
@@ -525,8 +528,12 @@ MonoBehaviour:
   rayMaxDistance: 100
   leftOff: -35
   leftOff1: -17.5
+  leftOff2: -8.75
+  leftOff3: -26.25
   rightOff: 35
   rightOff1: 17.5
+  rightOff2: 8.75
+  rightOff3: 26.25
   timer: 0
   hasChecked: 0
   jailOff: 0
