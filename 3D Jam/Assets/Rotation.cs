@@ -10,6 +10,7 @@ public class Rotation : MonoBehaviour
 
     public GameObject player;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,15 +50,15 @@ public class Rotation : MonoBehaviour
         {
             dragging = false;
         }
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    dragging = true;
-        //}
+        if (Input.GetMouseButton(0))
+        {
+            dragging = true;
+        }
     }
 
-    private void OnMouseDrag()
-    {
-        dragging = true;
-    }
+    //private void OnMouseDrag()
+    //{
+    //    dragging = true;
+    //}
 
 }
