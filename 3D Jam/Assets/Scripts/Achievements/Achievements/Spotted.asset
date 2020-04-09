@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4759b488c9140fc4dab6339a2fedf3e5, type: 3}
-  m_Name: Test
+  m_Name: Spotted
   m_EditorClassIdentifier: 
-  title: Test
-  description: Ceci est un test
-  image: {fileID: 21300000, guid: 912b96b3708e6094ebd8814969829695, type: 3}
+  title: Spotted
+  description: "Se faire attraper par un garde pour la premi\xE8re fois"
+  image: {fileID: 21300000, guid: b2d88dc5cf8aff441bf0d5e160e78c81, type: 3}
