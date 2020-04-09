@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private float rayDistance;
     [SerializeField] private string selectableTag = "Prop";
     [SerializeField] private string searchableTag = "Searchable";
+    [SerializeField] private string listenTag = "Listenable";
     [SerializeField] private RaycastHit lastRay;
 
     [Header("Interact Prefs")]
@@ -102,7 +103,13 @@ public class MouseLook : MonoBehaviour
                     HideInteractHUD();
                 }
 
-            } else
+            }
+            else if (selection.CompareTag(listenTag))
+            {
+                LaunchDialogue();
+            }
+
+            else
             {
                 if (IsInteractHUDActive())
                 {
@@ -136,6 +143,12 @@ public class MouseLook : MonoBehaviour
 
             HideInteractHUD();
         }
+    }
+
+    private void LaunchDialogue()
+    {
+        ShowInteractHUD("Listen Dialogue");
+        // Lancer le dialogue
     }
 
     private void ShowInteractHUD(string text)

@@ -58,6 +58,9 @@ public class GardeMovement : MonoBehaviour
     public float tpRng;
 
     private float newA, newB;
+
+    private Animator getAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +68,7 @@ public class GardeMovement : MonoBehaviour
         originalSpeed = speed;
         originalTurnSpeed = turnSpeed;
         Randomize();
+        getAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,6 +77,7 @@ public class GardeMovement : MonoBehaviour
         fromAtoB();
         Raycasts();
         checkJail();
+        ChangeAnim();
     }
 
     void Randomize()
@@ -279,18 +284,19 @@ public class GardeMovement : MonoBehaviour
         Vector3 rightAngle3= spreadAngleRight3 * defaultAngle;
 
 
+        Vector3 posRaycast = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
 
-        Ray ray = new Ray(transform.position, transform.forward);
-        Ray leftRay = new Ray(transform.position, leftAngle);
-        Ray leftRay1 = new Ray(transform.position, leftAngle1);
-        Ray leftRay2 = new Ray(transform.position, leftAngle2);
-        Ray leftRay3 = new Ray(transform.position, leftAngle3);
+        Ray ray = new Ray(posRaycast, transform.forward);
+        Ray leftRay = new Ray(posRaycast, leftAngle);
+        Ray leftRay1 = new Ray(posRaycast, leftAngle1);
+        Ray leftRay2 = new Ray(posRaycast, leftAngle2);
+        Ray leftRay3 = new Ray(posRaycast, leftAngle3);
 
 
-        Ray rightRay = new Ray(transform.position, rightAngle);
-        Ray rightRay1 = new Ray(transform.position, rightAngle1);
-        Ray rightRay2 = new Ray(transform.position, rightAngle2);
-        Ray rightRay3 = new Ray(transform.position, rightAngle3);
+        Ray rightRay = new Ray(posRaycast, rightAngle);
+        Ray rightRay1 = new Ray(posRaycast, rightAngle1);
+        Ray rightRay2 = new Ray(posRaycast, rightAngle2);
+        Ray rightRay3 = new Ray(posRaycast, rightAngle3);
 
 
         int layerMask = 1 << 2;
@@ -467,6 +473,18 @@ public class GardeMovement : MonoBehaviour
         else
         {
             Debug.DrawLine(rightRay3.origin, rightRay3.origin + rightRay3.direction * rayMaxDistance, Color.green);
+        }
+    }
+
+    void ChangeAnim()
+    {
+        if (isChecking)
+        {
+            getAnim.SetBool("isChecking", true);
+        }
+        else
+        {
+            getAnim.SetBool("isChecking", false);
         }
     }
 }
