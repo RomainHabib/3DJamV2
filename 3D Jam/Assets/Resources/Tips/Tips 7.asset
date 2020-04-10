@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
   m_Name: Tips 7
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "Les barreaux de cette fen\xEAtre n\u2019ont pas l\u2019air bien solide\u2026"
   nextDialogue: {fileID: 0}

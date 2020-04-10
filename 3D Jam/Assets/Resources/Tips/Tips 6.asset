@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
   m_Name: Tips 6
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "Les tapis gardent bien des secret, n\u2019h\xE9sitez pas \xE0 continuer
+    l\u2019oeuvre de vos pr\xE9d\xE9cesseurs !"
   nextDialogue: {fileID: 0}

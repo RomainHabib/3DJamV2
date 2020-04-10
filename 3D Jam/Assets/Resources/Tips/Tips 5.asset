@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
   m_Name: Tips 5
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "Si jamais vous voulez tout faire sauter, pensez \xE0 vous prot\xE9ger
+    !"
   nextDialogue: {fileID: 0}

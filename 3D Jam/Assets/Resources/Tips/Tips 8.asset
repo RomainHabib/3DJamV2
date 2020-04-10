@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
-  m_Name: Tips 7
+  m_Name: Tips 8
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "N\u2019h\xE9sitez pas \xE0 \xE9couter aux murs, certaines infos pourront
+    servir votre \xE9vasion !"
   nextDialogue: {fileID: 0}

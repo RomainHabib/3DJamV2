@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
   m_Name: Tips 1
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "Le mur en dessous de cette fen\xEAtre \xE0 l\u2019air fragilis\xE9 par
+    le temps, pensez-y !"
   nextDialogue: {fileID: 0}

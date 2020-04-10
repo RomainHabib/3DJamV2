@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63e8296cfc8874e87bddc94fed39d5, type: 3}
   m_Name: Tips 4
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: "Dans les vieilles prisons les canalisations sont toujours utiles pour
+    une \xE9vasion !"
   nextDialogue: {fileID: 0}
