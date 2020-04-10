@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     private float charCount;
     private bool textBeingWrited;
     private bool nextDialBool;
-    private DialogueScriptableObject textSO;
+    public DialogueScriptableObject textSO;
     public DialogueScriptableObject[] dialoguesSO;
     public static DialogueManager Instance { get; protected set; }
     void Start()
@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         dialoguesSO = list.ToArray();
         ReferenceText.maxVisibleCharacters = 0;
         // textSO = dialoguesSO[0];
-        DisplayDialogue("Oklm");
+       // DisplayDialogue("Oklm");
         
     }
 

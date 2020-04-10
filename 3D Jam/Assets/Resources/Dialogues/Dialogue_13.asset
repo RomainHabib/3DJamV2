@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue: "Ma m\xE8re m'a dit que je recevrais un g\xE2reau avec une surprise dedans
     mais j'ai toujours rien re\xE7u ? Chui s\xFBr c'est les gars du service courrir
     qui se sont encore gour\xE9 de cellule."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: 0960d7239de61a342bd74d7e7c93dc68, type: 2}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: "Je suis pass\xE9 dans la cellule de Djin l'autre jour, mais je n'ai
     pas pu me laver les mains, on dirait que son lavabo est bouch\xE9..."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: 16ef52c18d62a0443ac1d31140a79ce4, type: 2}

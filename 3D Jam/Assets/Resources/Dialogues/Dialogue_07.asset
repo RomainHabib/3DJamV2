@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue: "Tu sais Johnson, dans la cellule de Djin, notre voisin, j'ai planqu\xE9
     un petit mot sous sa lampe pour le remercier de nous avoir d\xE9barasser de cette
     enflure de Jason."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: 6b7c44f4bb90b054db79859427bf0e4a, type: 2}
