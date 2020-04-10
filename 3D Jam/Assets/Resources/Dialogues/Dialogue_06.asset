@@ -16,4 +16,4 @@ MonoBehaviour:
     faire du tournevis avec je l'ai arrang\xE9, mais Djin a dit que \xE7a lui serait
     utile pour plusieurs de ses \"fameux\" plans donc il l'a prit. Remarque moi \xE7a
     m'arrange, comme \xE7a c'est lui qu'on accusera."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: cb53a8ef6fc5fa443befebcb960c1b41, type: 2}

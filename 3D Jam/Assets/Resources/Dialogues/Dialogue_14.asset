@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue: "J'ai entendu dire que le gars qui a tu\xE9 son colloc \xE9tait chauffeur
     de taxi et qu'il tuait toutes ses clientes de sang froid, un artiste ce gars
     !"
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: a88c6ccaf24e1e7459eb6f5913c30daf, type: 2}

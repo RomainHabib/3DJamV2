@@ -20,6 +20,7 @@ public class SearchObjects : MonoBehaviour
             searchingObject.timeSearched = 0;
         }
 
+        // TODO
         timer.fillAmount = searchingObject.timeSearched / searchingObject.timeToSearch;
 
         timer.gameObject.SetActive(true);

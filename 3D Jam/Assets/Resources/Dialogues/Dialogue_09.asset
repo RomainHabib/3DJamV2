@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue: "Paraitrait que les gardes ont foutu un micro dans chaque cellule pour
     \xE9vitez les \xE9vasion. Viens Tonio, on va les d\xE9foncer pour voir s'ils
     s'y attendent vraiment ces fumiers."
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: d6c9b875bf9534341bc1a8c855d670bc, type: 2}

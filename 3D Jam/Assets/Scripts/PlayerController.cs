@@ -23,8 +23,11 @@ public class PlayerController : MonoBehaviour
 
     public bool isInspecting;
 
+    private float sizeY;
+
     void Start()
     {
+        sizeY = transform.localScale.y;
         isInspecting = false;
     }
 
@@ -32,13 +35,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!isInspecting)
         {
-        Move();
-        Crouch();
+            Move();
+            Crouch();
         }
 
         if (isInspecting)
         {
-            transform.localScale = new Vector3(1, 1.5f, 1);
+            transform.localScale = new Vector3(1, sizeY, 1);
         }
     }
 
@@ -81,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(1, 1.5f, 1);
+            transform.localScale = new Vector3(1, sizeY, 1);
         }
     }
 }

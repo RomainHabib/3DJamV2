@@ -72,7 +72,7 @@ public class CanvasManager : MonoBehaviour
 
     public void retry()
     {
-        SceneManager.LoadScene("Louis");
+        SceneManager.LoadScene("Final");
     }
 
     public void goToMainMenu()

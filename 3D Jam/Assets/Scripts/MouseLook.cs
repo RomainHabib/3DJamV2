@@ -106,7 +106,7 @@ public class MouseLook : MonoBehaviour
             }
             else if (selection.CompareTag(listenTag))
             {
-                LaunchDialogue();
+                LaunchDialogue(selection);
             }
 
             else
@@ -145,9 +145,40 @@ public class MouseLook : MonoBehaviour
         }
     }
 
-    private void LaunchDialogue()
+    private void LaunchDialogue(Transform selection)
     {
-        ShowInteractHUD("Listen Dialogue");
+        if(selection.GetComponent<DialogueMur>().isRunning == true)
+        {
+            //HideInteractHUD();
+            // return;
+            ShowInteractHUD("Next Dialogue");
+
+            if(DialogueManager.Instance.textSO.nextDialogue == null)
+            {
+                HideInteractHUD();
+                return;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+
+                DialogueManager.Instance.DisplayDialogue(DialogueManager.Instance.textSO.nextDialogue.name);
+                selection.GetComponent<DialogueMur>().isRunning = true;
+            }
+        }
+        else
+        {
+            ShowInteractHUD("Listen Dialogue");
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                DialogueManager.Instance.DisplayDialogue(selection.GetComponent<DialogueMur>().nomDuDialogue);
+                selection.GetComponent<DialogueMur>().isRunning = true;
+
+            }
+        }
+        
+        
         // Lancer le dialogue
     }
 

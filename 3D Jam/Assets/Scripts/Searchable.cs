@@ -8,9 +8,14 @@ public class Searchable : MonoBehaviour
     public GameObject objectToSpawn;
     public Transform spawnPoint;
 
-    [Header("Settings")]
+    [Header("A la mano")]
     public float timeToSearch;
     public bool keepTime;
+
+    [Header("With object")]
+    public GameObject objectToHave;
+    public float timeToSearchObj;
+    public bool keepTimeObj;
 
     [HideInInspector]
     public bool searched = false;
@@ -28,5 +33,33 @@ public class Searchable : MonoBehaviour
             }
         }
         searched = true;
+    }
+
+    public float TimeToSearch()
+    {
+        if(GotTheItem())
+        {
+            return timeToSearchObj;
+        }
+        return timeToSearch;
+    }
+
+    public bool KeepTime()
+    {
+        if (GotTheItem())
+        {
+            return keepTimeObj;
+        }
+        return keepTime;
+    }
+
+    public bool GotTheItem()
+    {
+        if(objectToHave != null && objectToHave == Inventory.instance.inHand)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
