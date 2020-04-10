@@ -39,8 +39,8 @@ public class MouseLook : MonoBehaviour
     {
         if (!playerBody.GetComponent<PlayerController>().isInspecting)
         {
-        Look();
-        LineVision();   
+            Look();
+            LineVision();   
         }
     }
 
@@ -93,7 +93,7 @@ public class MouseLook : MonoBehaviour
 
                 if (searchObject.searched == false)
                 {
-                    ShowInteractHUD("Search");
+                    ShowInteractHUD("Search : " + searchObject.gameObject.name);
                     if (Input.GetKeyDown(KeyCode.F))
                     {
                         playerSearch.Search(searchObject);
