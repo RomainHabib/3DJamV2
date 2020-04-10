@@ -56,6 +56,7 @@ public class AchievementsManager : MonoBehaviour
         {
             ShowAchievement(achi.achiev);
             achi.achieved = true;
+            
         } else
         {
             Debug.LogError("Achievement unknown : " + name);
@@ -64,6 +65,7 @@ public class AchievementsManager : MonoBehaviour
 
     public void ShowAchievement(Achievements achievement)
     {
+        achievement.achieved = true;
         text.text = achievement.title;
         image.sprite = achievement.image;
         parent.SetBool("Popin", true);

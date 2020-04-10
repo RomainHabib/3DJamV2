@@ -15,3 +15,4 @@ MonoBehaviour:
   title: "C'est tomb\xE9 du camion"
   description: "R\xE9ussir \xE0 trouver tous les objets au moins une fois"
   image: {fileID: 21300000, guid: d011b99310a893e42b68f881278fbb8f, type: 3}
+  achieved: 0

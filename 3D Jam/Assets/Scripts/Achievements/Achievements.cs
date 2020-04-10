@@ -9,4 +9,5 @@ public class Achievements : ScriptableObject
     public string description;
 
     public Sprite image;
+    public bool achieved;
 }
