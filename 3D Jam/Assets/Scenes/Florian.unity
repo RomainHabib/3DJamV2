@@ -2482,7 +2482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047544903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.042, y: 0, z: 1.005}
+  m_LocalPosition: {x: 0.38, y: 0, z: 0.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1325570129}
@@ -3229,10 +3229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 0}
   spawnPoint: {fileID: 0}
-  timeToSearch: 0
-  keepTime: 0
-  objectToHave: {fileID: 0}
-  timeToSearchObj: 0
+  timeToSearch: 500
+  keepTime: 1
+  objectToHave: {fileID: 608123503}
+  timeToSearchObj: 3
   keepTimeObj: 0
   searched: 0
   timeSearched: 0

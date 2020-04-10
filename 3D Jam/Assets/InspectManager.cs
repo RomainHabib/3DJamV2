@@ -57,7 +57,10 @@ public class InspectManager : MonoBehaviour
                 }
 
                 inspected.transform.position = target.transform.position;
-                inspected.GetComponent<Renderer>().material = inspected.GetComponent<SelectionFeedback>().normalMaterial;
+                if (inspected.GetComponent<Renderer>() != null)
+                {
+                    inspected.GetComponent<Renderer>().material = inspected.GetComponent<SelectionFeedback>().normalMaterial;
+                }
                 inspected.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 
                 for (int i = 0; i < toDesactivate.Length; i++)

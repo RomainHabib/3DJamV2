@@ -26,8 +26,9 @@ public class Searchable : MonoBehaviour
     {
         if (objectToSpawn != null) {
             GameObject instantiate = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+            instantiate.name = objectToSpawn.name;
 
-            if (Inventory.instance.inHand == null)
+            if (Inventory.instance.inHand == null && objectToSpawn.CompareTag("Prop"))
             {
                 Inventory.instance.PickUp(instantiate);
             }
@@ -55,7 +56,7 @@ public class Searchable : MonoBehaviour
 
     public bool GotTheItem()
     {
-        if(objectToHave != null && objectToHave == Inventory.instance.inHand)
+        if(objectToHave != null && Inventory.instance.inHand != null && objectToHave.name == Inventory.instance.inHand.name)
         {
             return true;
         }

@@ -12,6 +12,7 @@ public class ItemDes : MonoBehaviour
     }
 
     public PropType type;
+    public bool suspicious = true;
 
     public string itemName;
     [TextArea]

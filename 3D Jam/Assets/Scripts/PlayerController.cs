@@ -78,13 +78,15 @@ public class PlayerController : MonoBehaviour
     //--- Gère l'accroupissement du joueur ---//
     void Crouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             transform.localScale = new Vector3(1, 0.35f, 1);
+            Inventory.instance.ScaleInHand();
         }
-        else
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             transform.localScale = new Vector3(1, sizeY, 1);
+            Inventory.instance.ScaleInHand();
         }
     }
 }

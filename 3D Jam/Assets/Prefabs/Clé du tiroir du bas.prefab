@@ -1,34 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5433865267998131402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5166629823274622411}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e05525edc5adb340852ddfb379fe1bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 15
-  player: {fileID: 0}
---- !u!114 &3877570886212915704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5166629823274622411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d0e1ec14e33ac4a9f9251ca9b709b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  itemName: 
-  itemDesc: 
 --- !u!54 &4080076374241280224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -58,6 +29,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.5229478, y: 6.601867, z: 2.1781943}
   m_Center: {x: 0, y: 3.221553, z: 0}
+--- !u!114 &3877570886212915704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166629823274622411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d0e1ec14e33ac4a9f9251ca9b709b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  suspicious: 1
+  itemName: 
+  itemDesc: 
+--- !u!114 &5433865267998131402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166629823274622411}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e05525edc5adb340852ddfb379fe1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 15
+  player: {fileID: 0}
 --- !u!1001 &5166629823274780555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,15 +120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462124, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37643862
+      value: 0.03764386
       objectReference: {fileID: 0}
     - target: {fileID: 462124, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3764388
+      value: 0.03764388
       objectReference: {fileID: 0}
     - target: {fileID: 462124, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.37643877
+      value: 0.03764388
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5de5e674870ca479a40105f80555ad, type: 3}

@@ -305,18 +305,25 @@ public class GardeMovement : MonoBehaviour
         RaycastHit hitInfo;
 
         //--- Conditions semblables à tous les raycast ---//
-        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay1, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay1, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay2, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(rightRay3, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay2, out hitInfo, rayMaxDistance, layerMask) || Physics.Raycast(leftRay3, out hitInfo, rayMaxDistance, layerMask))
+        if (Physics.Raycast(ray, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(leftRay, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(rightRay, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(leftRay1, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(rightRay1, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(rightRay2, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(rightRay3, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(leftRay2, out hitInfo, rayMaxDistance, layerMask) ||
+            Physics.Raycast(leftRay3, out hitInfo, rayMaxDistance, layerMask))
         {
-            if (isChecking)
+            if (isChecking && hitInfo.transform.CompareTag("Player"))
             {
-                // INTEGRER LA BOOL SUSPICIOUS
-
-             
-              // CanvasManager.Instance.setLooseMenu();
-  
-
+                if (Inventory.instance.inHand != null && Inventory.instance.inHand.GetComponent<ItemDes>().suspicious)
+                {
+                    CanvasManager.Instance.setLooseMenu();
+                }
             }
         }
+
         //--- Pour le raycast de face ---//
         if (Physics.Raycast(ray, out hitInfo, rayMaxDistance, layerMask))
         {

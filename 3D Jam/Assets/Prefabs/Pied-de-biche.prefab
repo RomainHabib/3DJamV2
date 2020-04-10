@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 7306984288121434218}
   - component: {fileID: 7306984288117968700}
   - component: {fileID: 7306984288116829956}
+  - component: {fileID: 8530265199206182443}
+  - component: {fileID: 6644092691047989806}
   m_Layer: 0
-  m_Name: Crowbar
-  m_TagString: Untagged
+  m_Name: Pied-de-biche
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +113,33 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7d6000c6952e64ddd9b6613c319ad4d7, type: 3}
+--- !u!114 &8530265199206182443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306984288123145132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d0e1ec14e33ac4a9f9251ca9b709b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  suspicious: 1
+  itemName: 
+  itemDesc: 
+--- !u!114 &6644092691047989806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306984288123145132}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e05525edc5adb340852ddfb379fe1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 15
+  player: {fileID: 0}

@@ -11,7 +11,8 @@ public class StepBool : Step
         if (verified)
         {
             Ended = true;
+            return true;
         }
-        return true;
+        return false;
     }
 }

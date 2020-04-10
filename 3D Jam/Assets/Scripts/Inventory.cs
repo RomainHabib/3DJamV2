@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Image inventoryTab;
     [SerializeField] private Text inventoryName;
 
+    private float handScale;
+
     private void Awake()
     {
         instance = this;
@@ -42,16 +44,21 @@ public class Inventory : MonoBehaviour
 
     public void PickUp(GameObject toPick)
     {
+        toPick.GetComponent<Collider>().enabled = false;
+
         if(inHand == null)
         {
+            handScale = toPick.transform.lossyScale.y;
+
             inHand = toPick;
+            inHand.transform.rotation = Quaternion.identity;
             StartCoroutine(PickupCooldown());
         }
 
         else if (inHand != null)
         {
-
-            if(stockedOne == null && !pickupCooldown)
+            handScale = toPick.transform.lossyScale.y;
+            if (stockedOne == null && !pickupCooldown)
             {
                 stockedOne = inHand;
                 inHand = toPick;
@@ -63,6 +70,7 @@ public class Inventory : MonoBehaviour
                 inHand = toPick;
             }
 
+            inHand.transform.rotation = Quaternion.identity;
             inHand.SetActive(true);
 
             StartCoroutine(PickupCooldown());
@@ -74,6 +82,7 @@ public class Inventory : MonoBehaviour
         toDrop.transform.parent = GameObject.FindGameObjectWithTag("PropContainer").transform;
         toDrop.transform.position = playerHand.transform.position;
         toDrop.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        toDrop.GetComponent<Collider>().enabled = true;
     }
 
     //--- Gère le changement de la main à l'inventaire ---//
@@ -96,6 +105,7 @@ public class Inventory : MonoBehaviour
             if (inHand != null)
             {
                 inHand.SetActive(true);
+                ScaleInHand();
             }
         }
     }
@@ -107,15 +117,17 @@ public class Inventory : MonoBehaviour
         {
             inHand.transform.position = playerHand.transform.position;
             inHand.transform.parent = playerHand.transform;
-            inHand.transform.rotation = Quaternion.identity;
-            inHand.transform.localScale = inHand.GetComponent<SelectionFeedback>().size;
+            //inHand.transform.localScale = inHand.GetComponent<SelectionFeedback>().size;
 
             inHand.SetActive(true);
         }
 
         if (stockedOne != null)
         {
-            inventoryTab.GetComponent<Image>().sprite = stockedOne.GetComponent<SelectionFeedback>().inventoryPreview;
+            if (stockedOne.GetComponent<SelectionFeedback>() != null)
+            {
+                inventoryTab.GetComponent<Image>().sprite = stockedOne.GetComponent<SelectionFeedback>().inventoryPreview;
+            }
             inventoryName.text = stockedOne.name;
             inventoryTab.gameObject.SetActive(true);
         }
@@ -125,13 +137,13 @@ public class Inventory : MonoBehaviour
             inventoryName.text = "";
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && inHand != null)
+        if (Input.GetKeyDown(KeyCode.R) && inHand != null && GetComponent<PlayerController>().isInspecting == false)
         {
             Drop(inHand);
             inHand = stockedOne;
             if(stockedOne != null)
             {
-            stockedOne = null;
+                stockedOne = null;
             }
         }
     }
@@ -141,5 +153,13 @@ public class Inventory : MonoBehaviour
         pickupCooldown = true;
         yield return new WaitForSeconds(1.0f);
         pickupCooldown = false;
+    }
+
+    public void ScaleInHand()
+    {
+        if (inHand != null)
+        {
+            inHand.transform.localScale = new Vector3(inHand.transform.localScale.x, inHand.transform.localScale.y / (inHand.transform.lossyScale.y / handScale), inHand.transform.localScale.z);
+        }
     }
 }

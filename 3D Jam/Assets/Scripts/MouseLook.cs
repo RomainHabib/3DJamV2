@@ -69,13 +69,16 @@ public class MouseLook : MonoBehaviour
 
             if (selection.CompareTag(selectableTag) && selection.gameObject != playerBody.GetComponent<Inventory>().inHand)
             {
-                if (lastRay.transform != null)
+                if (lastRay.transform != null && lastRay.transform.GetComponent<SelectionFeedback>() != null)
                 {
                     lastRay.transform.GetComponent<SelectionFeedback>().isHovered = false;
                 }
                 lastRay = hit;
 
-                hit.transform.GetComponent<SelectionFeedback>().isHovered = true;
+                if (hit.transform.GetComponent<SelectionFeedback>() != null)
+                {
+                    hit.transform.GetComponent<SelectionFeedback>().isHovered = true;
+                }
 
                 Debug.Log("Facing : " + hit.transform.name);
 
@@ -136,7 +139,7 @@ public class MouseLook : MonoBehaviour
                 playerBody.GetComponent<SearchObjects>().StopSearching();
             }
 
-            if (lastRay.transform != null)
+            if (lastRay.transform != null && lastRay.transform.GetComponent<SelectionFeedback>() != null)
             {
                 lastRay.transform.GetComponent<SelectionFeedback>().isHovered = false;
             }

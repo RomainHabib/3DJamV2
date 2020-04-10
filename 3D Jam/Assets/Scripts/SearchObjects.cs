@@ -15,13 +15,12 @@ public class SearchObjects : MonoBehaviour
     {
         searchingObject = targ;
 
-        if(!searchingObject.keepTime)
+        if(!searchingObject.KeepTime())
         {
             searchingObject.timeSearched = 0;
         }
 
-        // TODO
-        timer.fillAmount = searchingObject.timeSearched / searchingObject.timeToSearch;
+        timer.fillAmount = searchingObject.timeSearched / searchingObject.TimeToSearch();
 
         timer.gameObject.SetActive(true);
 
@@ -53,12 +52,11 @@ public class SearchObjects : MonoBehaviour
         while (searchingObject != null)
         {
             yield return new WaitForSeconds(refreshTime);
-            Debug.Log(searchingObject);
             searchingObject.timeSearched += refreshTime;
 
-            timer.fillAmount = searchingObject.timeSearched / searchingObject.timeToSearch;
+            timer.fillAmount = searchingObject.timeSearched / searchingObject.TimeToSearch();
 
-            if (searchingObject.timeSearched >= searchingObject.timeToSearch)
+            if (searchingObject.timeSearched >= searchingObject.TimeToSearch())
             {
                 searchingObject.SpawnItem();
 
