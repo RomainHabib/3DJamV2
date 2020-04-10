@@ -62,10 +62,18 @@ public class CanvasManager : MonoBehaviour
         if (EscMenu.activeSelf == true)
         {
             Time.timeScale = 1;
+            if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
         else
         {
             Time.timeScale = 0;
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
         EscMenu.SetActive(!EscMenu.activeSelf);
 

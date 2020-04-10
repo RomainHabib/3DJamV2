@@ -61,6 +61,8 @@ public class GardeMovement : MonoBehaviour
 
     private Animator getAnim;
 
+    private bool hasWon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,7 +115,7 @@ public class GardeMovement : MonoBehaviour
         turnSpeedCoef = Random.Range(2.0f, 8.0f);
         turnSpeedCoef2 = Random.Range(0.5f, 1.0f);
         precision = Random.Range(1.0f, 6.0f);
-        randomWait = Random.Range(4.0f, 7.0f);
+        randomWait = Random.Range(4.0f, 9.0f);
         randomAngleRotate = Random.Range(20.0f, 360.0f);
         minTurnSpeed = Random.Range(0.6f, 1.0f);
         minSpeed = Random.Range(0.2f, 1.0f);
@@ -299,7 +301,7 @@ public class GardeMovement : MonoBehaviour
         Ray rightRay3 = new Ray(posRaycast, rightAngle3);
 
 
-        int layerMask = 1 << 2;
+        int layerMask = 2;
         layerMask = ~layerMask;
 
         RaycastHit hitInfo;
@@ -319,7 +321,12 @@ public class GardeMovement : MonoBehaviour
             {
                 if (Inventory.instance.inHand != null && Inventory.instance.inHand.GetComponent<ItemDes>().suspicious)
                 {
-                    CanvasManager.Instance.setLooseMenu();
+                    if(hasWon == false)
+                    {
+                        CanvasManager.Instance.setLooseMenu();
+
+                        hasWon = true;
+                    }
                 }
             }
         }
