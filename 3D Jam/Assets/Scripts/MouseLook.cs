@@ -99,6 +99,13 @@ public class MouseLook : MonoBehaviour
                     ShowInteractHUD("Search : " + searchObject.gameObject.name);
                     if (Input.GetKeyDown(KeyCode.F))
                     {
+                        var searchSound = searchObject.GetComponent<AudioSound>();
+
+                        if(searchSound != null)
+                        {
+                        searchObject.GetComponent<AudioSound>().PlaySound();
+                        }
+
                         playerSearch.Search(searchObject);
                     }
                 } else if (IsInteractHUDActive())

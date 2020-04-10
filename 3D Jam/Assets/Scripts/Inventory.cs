@@ -156,6 +156,9 @@ public class Inventory : MonoBehaviour
     public IEnumerator PickupCooldown()
     {
         pickupCooldown = true;
+
+        GetComponent<AudioSound>().PlaySound();
+
         yield return new WaitForSeconds(1.0f);
         pickupCooldown = false;
     }
