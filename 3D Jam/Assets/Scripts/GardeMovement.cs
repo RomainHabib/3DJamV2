@@ -309,8 +309,11 @@ public class GardeMovement : MonoBehaviour
         {
             if (isChecking)
             {
+                // INTEGRER LA BOOL SUSPICIOUS
 
-
+             
+              // CanvasManager.Instance.setLooseMenu();
+  
 
             }
         }
