@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Inventory : MonoBehaviour
 {
    // [SerializeField] public List<GameObject> playerInventory;
+   public static Inventory instance;
+
     [SerializeField] public GameObject playerHand;
 
     public bool pickupCooldown;
@@ -16,6 +19,11 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private Image inventoryTab;
     [SerializeField] private Text inventoryName;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -71,16 +79,24 @@ public class Inventory : MonoBehaviour
     //--- Gère le changement de la main à l'inventaire ---//
     void SwapItem()
     {
-        GameObject temp;
 
-        if (Input.GetKeyDown(KeyCode.Tab) && stockedOne != null)
+        if (Input.GetKeyDown(KeyCode.Tab) && (inHand != null || stockedOne != null))
         {
-        temp = inHand;
-        inHand = stockedOne;
-        stockedOne = temp;
+            GameObject temp;
 
-        stockedOne.SetActive(false);
-        inHand.SetActive(true);
+            temp = inHand;
+            inHand = stockedOne;
+            stockedOne = temp;
+
+            if (stockedOne != null)
+            {
+                stockedOne.SetActive(false);
+            }
+
+            if (inHand != null)
+            {
+                inHand.SetActive(true);
+            }
         }
     }
 

@@ -44,7 +44,10 @@ public class AchievementsManager : MonoBehaviour
         achievs = new Dictionary<string, Achiev>();
         for (int i = 0; i < achievements.Count; i++)
         {
-            achievs.Add(achievements[i].title, new Achiev(false, achievements[i]));
+            if (achievements[i] != null)
+            {
+                achievs.Add(achievements[i].title, new Achiev(false, achievements[i]));
+            }
         }
     }
 
