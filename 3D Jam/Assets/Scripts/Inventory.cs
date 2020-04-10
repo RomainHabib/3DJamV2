@@ -85,6 +85,11 @@ public class Inventory : MonoBehaviour
         toDrop.GetComponent<Collider>().enabled = true;
     }
 
+    public void DestroyHand()
+    {
+        Destroy(inHand);
+    }
+
     //--- Gère le changement de la main à l'inventaire ---//
     void SwapItem()
     {
