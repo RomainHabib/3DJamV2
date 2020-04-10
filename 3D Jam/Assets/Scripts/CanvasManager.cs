@@ -40,13 +40,20 @@ public class CanvasManager : MonoBehaviour
     public void setWinMenu()
     {
         WinMenu.SetActive(!WinMenu.activeSelf);
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         stopTime = true;
     }
 
     public void setAlmostWinMenu()
     {
         AlmostWinMenu.SetActive(!AlmostWinMenu.activeSelf);
-        Time.timeScale = 0;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         stopTime = true;
 
     }
@@ -66,8 +73,12 @@ public class CanvasManager : MonoBehaviour
     public void setLooseMenu()
     {
         LooseMenu.SetActive(!LooseMenu.activeSelf);
+        Debug.Log("Perdu ! Looser");
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         stopTime = true;
-
     }
 
     public void retry()

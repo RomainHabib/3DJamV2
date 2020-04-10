@@ -13,6 +13,8 @@ public class SearchObjects : MonoBehaviour
 
     public void Search(Searchable targ)
     {
+        StopCoroutine("Searching");
+
         searchingObject = targ;
 
         if(!searchingObject.KeepTime())

@@ -39,8 +39,6 @@ public class AchievementsManager : MonoBehaviour
 
     void Start()
     {
-        ShowAchievement(achievements[0]);
-
         achievs = new Dictionary<string, Achiev>();
         for (int i = 0; i < achievements.Count; i++)
         {
@@ -48,6 +46,19 @@ public class AchievementsManager : MonoBehaviour
             {
                 achievs.Add(achievements[i].title, new Achiev(false, achievements[i]));
             }
+        }
+    }
+
+    public void ShowAchievement(string name)
+    {
+        Achiev achi = GetAchievement(name);
+        if(achi != null && !achi.achieved)
+        {
+            ShowAchievement(achi.achiev);
+            achi.achieved = true;
+        } else
+        {
+            Debug.LogError("Achievement unknown : " + name);
         }
     }
 
@@ -61,13 +72,17 @@ public class AchievementsManager : MonoBehaviour
 
     IEnumerator AchievementPopout()
     {
-        yield return new WaitForSeconds(achievementTime);
+        yield return new WaitForSecondsRealtime(achievementTime);
         Debug.Log("Debug");
         parent.SetBool("Popin", false);
     }
 
     public Achiev GetAchievement(string title)
     {
-        return achievs[title];
+        if (achievs.ContainsKey(title))
+        {
+            return achievs[title];
+        }
+        return null;
     }
 }
