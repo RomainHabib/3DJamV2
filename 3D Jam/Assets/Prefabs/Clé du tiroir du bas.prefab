@@ -16,19 +16,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &153185685313248016
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5166629823274622411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5229478, y: 6.601867, z: 2.1781943}
-  m_Center: {x: 0, y: 3.221553, z: 0}
 --- !u!114 &3877570886212915704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +46,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 15
   player: {fileID: 0}
+--- !u!64 &6429633915724519355
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166629823274687027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 5abfc2d3b5ea5d64ca95d10d1a34b677, type: 3}
 --- !u!1001 &5166629823274780555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +136,12 @@ PrefabInstance:
 --- !u!1 &5166629823274622411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 5166629823274780555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5166629823274687027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 105912, guid: cc5de5e674870ca479a40105f80555ad,
     type: 3}
   m_PrefabInstance: {fileID: 5166629823274780555}
   m_PrefabAsset: {fileID: 0}

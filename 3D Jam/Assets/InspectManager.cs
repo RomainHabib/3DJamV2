@@ -57,7 +57,7 @@ public class InspectManager : MonoBehaviour
                 }
 
                 inspected.transform.position = target.transform.position;
-                if (inspected.GetComponent<Renderer>() != null)
+                if (inspected.GetComponent<Renderer>() != null && inspected.GetComponent<SelectionFeedback>() != null)
                 {
                     inspected.GetComponent<Renderer>().material = inspected.GetComponent<SelectionFeedback>().normalMaterial;
                 }

@@ -15,4 +15,14 @@ public class StepBool : Step
         }
         return false;
     }
+
+    public void True()
+    {
+        verified = true;
+    }
+
+    public void False()
+    {
+        verified = false;
+    }
 }

@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
    public static Inventory instance;
 
     [SerializeField] public GameObject playerHand;
+    [SerializeField] public GameObject dropZone;
 
     public bool pickupCooldown;
 
@@ -44,7 +45,7 @@ public class Inventory : MonoBehaviour
 
     public void PickUp(GameObject toPick)
     {
-        toPick.GetComponent<Collider>().enabled = false;
+        toPick.GetComponentInChildren<Collider>().enabled = false;
 
         if(inHand == null)
         {
@@ -80,9 +81,9 @@ public class Inventory : MonoBehaviour
     public void Drop(GameObject toDrop)
     {
         toDrop.transform.parent = GameObject.FindGameObjectWithTag("PropContainer").transform;
-        toDrop.transform.position = playerHand.transform.position;
+        toDrop.transform.position = dropZone.transform.position;
         toDrop.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        toDrop.GetComponent<Collider>().enabled = true;
+        toDrop.GetComponentInChildren<Collider>().enabled = true;
     }
 
     public void DestroyHand()

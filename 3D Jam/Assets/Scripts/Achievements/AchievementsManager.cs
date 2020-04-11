@@ -52,11 +52,10 @@ public class AchievementsManager : MonoBehaviour
     public void ShowAchievement(string name)
     {
         Achiev achi = GetAchievement(name);
-        if(achi != null && !achi.achieved)
+        if(achi != null && !achi.achiev.achieved)
         {
             ShowAchievement(achi.achiev);
             achi.achieved = true;
-            
         } else
         {
             Debug.LogError("Achievement unknown : " + name);

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 6633369608746591973}
   - component: {fileID: 6658105742507635407}
   - component: {fileID: 6651560788925177337}
-  - component: {fileID: 3513193606349572376}
+  - component: {fileID: 3732969154330366}
   - component: {fileID: 8633751909250700263}
   - component: {fileID: 4385308609750039155}
   - component: {fileID: 6115365742594592636}
   - component: {fileID: 4377092684831472483}
+  - component: {fileID: 70361550250323993}
   m_Layer: 0
-  m_Name: Table Sppon
+  m_Name: "Cuill\xE8re"
   m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3513193606349572376
+--- !u!65 &3732969154330366
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04283975, y: 0.19425295, z: 0.022524051}
-  m_Center: {x: -0.000000074505806, y: 0.09219832, z: 0.0059871306}
+  m_Size: {x: 0.04283975, y: 0.064466834, z: 0.020018816}
+  m_Center: {x: -0.000000074505806, y: 0.15308052, z: 0.007922769}
 --- !u!54 &8633751909250700263
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,5 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  suspicious: 1
   itemName: 
   itemDesc: 
+--- !u!64 &70361550250323993
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636551038676305459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 63047feaf49140741bec2aba00c8f0de, type: 3}

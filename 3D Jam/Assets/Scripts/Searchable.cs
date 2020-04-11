@@ -63,4 +63,10 @@ public class Searchable : MonoBehaviour
 
         return false;
     }
+
+    public void Reset()
+    {
+        searched = false;
+        timeSearched = 0.0f;
+    }
 }

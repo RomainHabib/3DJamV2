@@ -23,6 +23,8 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private Text interactText;
     [SerializeField] private GameObject interactHud;
 
+    [HideInInspector] public bool visionLock = false;
+
     private void Start()
     {
         //--- Pour lock le curseur dans l'écran ---//
@@ -37,10 +39,10 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerBody.GetComponent<PlayerController>().isInspecting)
+        if (!playerBody.GetComponent<PlayerController>().isInspecting || visionLock == true)
         {
             Look();
-            LineVision();   
+            LineVision();
         }
     }
 
