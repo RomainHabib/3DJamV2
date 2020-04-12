@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
     public void PickUp(GameObject toPick)
     {
         toPick.GetComponentInChildren<Collider>().enabled = false;
+        AchievementsManager.instance.advancement.ObjectFound(AchievementsManager.instance.advancement.props, toPick);
 
         if(inHand == null)
         {

@@ -323,6 +323,8 @@ public class GardeMovement : MonoBehaviour
                 {
                     if(hasWon == false)
                     {
+                        AchievementsManager.instance.advancement.Caught();
+
                         CanvasManager.Instance.setLooseMenu();
 
                         hasWon = true;

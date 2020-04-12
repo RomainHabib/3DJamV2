@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class AchievementsMenu : MonoBehaviour
 {
-    public List<Achievements> achievements;
+    private List<Achievements> achievements;
     public List<GameObject> achievementsGO;
     public Text descText;
       
@@ -15,6 +15,13 @@ public class AchievementsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        achievements = new List<Achievements>();
+        object[] objects = Resources.LoadAll("Achievements", typeof(Achievements));
+        for (int i = 0; i < objects.Length; i++)
+        {
+            achievements.Add((Achievements)objects[i]);
+        }
+
         descText.text = "";
         for(int i = 0; i < achievements.Count; i++)
         {
