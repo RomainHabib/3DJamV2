@@ -9,6 +9,7 @@ public class Countdown : MonoBehaviour
 
     [SerializeField] private float countdownTime;
     [SerializeField] private Text countdownText;
+    [SerializeField] private bool loseAt0;
 
     void Start()
     {
@@ -29,7 +30,10 @@ public class Countdown : MonoBehaviour
         if (internTime <= 0)
         {
             internTime = 0;
+            if(loseAt0)
+            {
+                CanvasManager.Instance.setLooseMenu();
+            }
         }
-
     }
 }
